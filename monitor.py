@@ -8,7 +8,6 @@ if __name__ == '__main__':
   # are all the peers connected?
   for key, value in status['host'].items():
     for i in value['state'].items():
-      print i
       if i[1] not in ['Peer in Cluster (Connected)']:
         print i[0] + ' ' + i[1]
 
