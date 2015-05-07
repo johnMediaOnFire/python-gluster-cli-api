@@ -2,6 +2,8 @@
 
 import gluster
 
+gluster.print_json(gluster.pool.list())
+
 gluster.print_json(gluster.peer.status())
 
 gluster.print_json(gluster.volume.list())

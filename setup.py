@@ -8,5 +8,6 @@ setup(name='python-gluster-cli-api',
             'gluster.peer',
             'gluster.volume',
             'gluster.snapshot',
+            'gluster.pool',
             ],
         )
