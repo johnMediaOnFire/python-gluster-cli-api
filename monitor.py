@@ -1,17 +1,12 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 import gluster
 
 if __name__ == '__main__':
-  status = gluster.peer.status()         # retrieve peer status from all servers
-  volumes = gluster.volume.info()         # retrieve all volumes on this server
 
-  # are all the peers connected?
-  for key, value in status['host'].items():
-    for i in value['state'].items():
-      if i[1] not in ['Peer in Cluster (Connected)']:
-        print i[0] + ' ' + i[1]
+  ret = gluster.peer.status()
 
-  # are all the volumes running?
-  for key, value in volumes.items():
-    if value['status'] not in ['Created', 'Started']:
-      print key + ' is ' + value['status']
+  non_connected_peers = []
+
+  for peer in ret['cliOutput']['peerStatus']['peer']:
+    if not peer['connected']:
+       non_connected_peers.append(peer['hostname'])
