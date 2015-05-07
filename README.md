@@ -22,7 +22,7 @@ parsable data out of gluster was via the CLI using the --xml flag.
 
 #### Debug Methods
 
-"Prints out the dictionary/JSON given."
+"Prints out the dictionary given."
   gluster.print_json(dict)
 
 
