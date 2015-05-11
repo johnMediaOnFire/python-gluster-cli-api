@@ -14,6 +14,12 @@ I needed a way to monitor my gluster servers and the only way I could find to ge
 parsable data out of gluster was via the CLI using the --xml flag.
 
 
+### Installation
+You have two options. 
+ * You can check out this repo anywhere on your gluster server and you should be able to execute ```test.py```.
+or
+ * Check out the repo and run:
+    python setup.py install
 
 ##### Usage:
 
