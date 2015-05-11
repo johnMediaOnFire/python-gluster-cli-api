@@ -17,9 +17,8 @@ parsable data out of gluster was via the CLI using the --xml flag.
 ### Installation
 You have two options. 
  * Option 1: You can check out this repo anywhere on your gluster server and you should be able to execute ```test.py```.
- * Option 2: Check out the repo and run:
+ * Option 2: Check out the repo and run: ```python setup.py install```
 
-    python setup.py install
 
 ##### Usage:
 
