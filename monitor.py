@@ -17,9 +17,14 @@ if __name__ == '__main__':
   ret = gluster.volume.info()
   non_running_volumes = []
 
-  for volume in ret['cliOutput']['volInfo']['volumes']['volume']:
-    if int(volume['status']) != 1:
-      non_running_volumes.append(volume['name'])
+
+  if isinstance(ret['cliOutput']['volInfo']['volumes']['volume'], list):
+    for volume in ret['cliOutput']['volInfo']['volumes']['volume']:
+      if int(volume['status']) != 1:
+        non_running_volumes.append(volume['name'])
+  else:
+    if int(ret['cliOutput']['volInfo']['volumes']['volume']['status']) != 1:
+      non_running_volumes.append(ret['cliOutput']['volInfo']['volumes']['volume']['status'])
 
 # Output
   for peer in non_connected_peers:
