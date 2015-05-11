@@ -6,9 +6,13 @@ if __name__ == '__main__':
   ret = gluster.peer.status()
   non_connected_peers = []
 
-  for peer in ret['cliOutput']['peerStatus']['peer']:
-    if int(peer['connected']) != 1:
-       non_connected_peers.append(peer['hostname'])
+  if isinstance(ret['cliOutput']['peerStatus']['peer'], list):
+    for peer in ret['cliOutput']['peerStatus']['peer']:
+      if int(peer['connected']) != 1:
+        non_connected_peers.append(peer['hostname'])
+  else:
+    if int(ret['cliOutput']['peerStatus']['peer']['connected']) != 1:
+      non_connected_peers.append(ret['cliOutput']['peerStatus']['peer']['hostname'])
 
   ret = gluster.volume.info()
   non_running_volumes = []
