@@ -1,8 +1,8 @@
 import os,sys
 import subprocess
 import json
-import xmltodict
-from types import ListType
+from . import xmltodict
+#from types import ListType
 
 class GlusterError(Exception):
     def __init__(self,value):
@@ -25,13 +25,14 @@ def _command(args):
   return stdout, stderr, out.returncode
 
 def print_json(d):
-  print(json.dumps(d, indent=2))
+  print((json.dumps(d, indent=2)))
 
 def _gluster_exists(gluster_path):
   return os.path.isfile(gluster_path)
 
 def xml(args):
-  assert type(args) is ListType, "args is not a list: %r" % args
+  #TODO replace ListType assert
+  #assert type(args) is ListType, "args is not a list: %r" % args
   gluster_path = '/usr/sbin/gluster'
   cmd = [gluster_path]
   #TODO: check argument input, then append; else fail.
@@ -46,7 +47,7 @@ def xml(args):
     return -1
 
 
-import peer
-import volume
-import snapshot
-import pool
+from . import peer
+from . import volume
+from . import snapshot
+from . import pool

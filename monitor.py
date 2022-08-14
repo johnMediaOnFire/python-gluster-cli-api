@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
 # Output
   for peer in non_connected_peers:
-    print 'Peer "' + peer + '" is not connected to the pool.'
+    print('Peer "' + peer + '" is not connected to the pool.')
 
   for volume in non_running_volumes:
-    print 'Volume "' + volume + '" is not running.'
+    print('Volume "' + volume + '" is not running.')

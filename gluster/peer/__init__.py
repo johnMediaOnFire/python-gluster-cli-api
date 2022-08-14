@@ -1,1 +1,1 @@
-from status import status
+from .status import status

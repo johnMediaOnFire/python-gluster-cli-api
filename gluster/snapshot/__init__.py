@@ -1,3 +1,3 @@
-from list import list
-from status import status
-from info import info
+from .list import list
+from .status import status
+from .info import info
