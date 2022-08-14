@@ -22,7 +22,7 @@ if not os.geteuid()==0:
 def _command(args):
   out = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
   (stdout, stderr) = out.communicate()
-  return stdout, stderr, out.returncode
+  return stdout.decode("UTF-8"), stderr.decode("UTF-8"), out.returncode
 
 def print_json(d):
   print((json.dumps(d, indent=2)))
